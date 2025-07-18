@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DiceRoller;
 
@@ -20,7 +16,7 @@ public class Die
     /// with the specified number of sides.
     /// </summary>
     /// <param name="numSides">
-    /// The number of sides on the die. Must be greater than zero.
+    /// The number of sides on the die. Must be greater than zero and up to <see cref="MAX_SIDES"/>.
     /// </param>
     /// <exception cref="ArgumentOutOfRangeException">Thrown when invalid number of sides is provided.</exception>
     public Die(byte numSides)
