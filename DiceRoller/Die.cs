@@ -11,7 +11,9 @@ namespace DiceRoller;
 /// with a configurable number of sides.
 /// </summary>
 public class Die
-    {
+{
+    private static readonly Random rand = new();
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Die"/> class 
     /// with the specified number of sides.
@@ -21,14 +23,14 @@ public class Die
     /// </param>
     /// <exception cref="ArgumentOutOfRangeException">Thrown when invalid number of sides is provided.</exception>
     public Die(byte numSides)
+    {
+        if (numSides <= 0 || numSides > 20)
         {
-            if (numSides <= 0 || numSides > 20)
-            {
-                throw new ArgumentOutOfRangeException(nameof(numSides)
-                    , $"{nameof(numSides)} must be greater than 0 and less than 21");
-            }
-            NumberOfSides = numSides;
+            throw new ArgumentOutOfRangeException(nameof(numSides)
+                , $"{nameof(numSides)} must be greater than 0 and less than 21");
         }
+        NumberOfSides = numSides;
+    }
 
     /// <summary>
     /// Gets the number of sides of the die.
@@ -53,7 +55,6 @@ public class Die
     /// </returns>
     public byte Roll()
     {
-        Random rand = new();
         FaceUpValue = Convert.ToByte(rand.Next(1, NumberOfSides + 1));
 
         return FaceUpValue;
