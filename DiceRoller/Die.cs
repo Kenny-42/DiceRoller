@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DiceRoller;
+﻿namespace DiceRoller;
 
 /// <summary>
 /// Represents a die used in games or simulations,
